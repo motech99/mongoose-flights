@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+
+<h1>Flight Details</h1>
+<p>Airline: <%= flight.airline %></p>
+<p>Airport: <%= flight.airport %></p>
+<p>Flight No.: <%= flight.flightNo %></p>
+<p>Departure Date/Time: <%= flight.departs.toISOString() %></p>
+
+<h2>List of Destinations</h2>
+<% if (flight.destinations && flight.destinations.length > 0) { %>
+  <ul>
+    <% flight.destinations.forEach(destination => { %>
+      <li>
+        Airport: <%= destination.airport %>,
+        Arrival Date/Time: <%= destination.arrival ? destination.arrival.toISOString() : 'Not available' %>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No destinations available for this flight.</p>
+<% } %>
+
+<h2>Add Destination</h2>
+<form id="destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
+  <label for="airport">Airport Code:</label>
+  <select id="airport" name="airport" required>
+    <option value="AUS">AUS</option>
+    <option value="DFW">DFW</option>
+    <option value="DEN">DEN</option>
+    <option value="LAX">LAX</option>
+    <option value="SAN">SAN</option>
+  </select>
+  <label for="arrival">Arrival Date/Time:</label>
+  <input type="datetime-local" id="arrival" name="arrival" required>
+  <button type="submit">Add Destination</button>
+</form>
+<%- include('../partials/footer') %>
