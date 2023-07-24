@@ -6,3 +6,14 @@ body {
 a {
   color: #00B7FF;
 }
+
+.ticket-button {
+  display: inline-block;
+  background: #1e3e68 none repeat scroll 0 0; 
+  border: 1px solid #029ae0; 
+  color: #12d3a9; 
+  outline: medium none; 
+  padding: 15px; 
+  text-decoration: none; 
+  
+}

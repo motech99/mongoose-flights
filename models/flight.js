@@ -7,8 +7,6 @@ const destinationsSchema = new mongoose.Schema({
     arrival: { type: Date }, 
 });
 
-
-
 const flightSchema = new mongoose.Schema({
     airline: { 
         type: String,
@@ -33,9 +31,9 @@ const flightSchema = new mongoose.Schema({
             return oneYearFromNow;
         },
     },
-    destinations: [destinationsSchema]
+    destinations: [destinationsSchema] 
 });
 
-const Flight = mongoose.model('FLight', flightSchema);
+const Flight = mongoose.model('Flight', flightSchema);
 
-module.exports = mongoose.model('Flight', flightSchema);
+module.exports = Flight;
