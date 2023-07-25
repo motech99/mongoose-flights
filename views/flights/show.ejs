@@ -12,7 +12,7 @@
     <% flight.destinations.forEach(destination => { %>
       <li>
         Airport: <%= destination.airport %>,
-        Arrival Date/Time: <%= destination.arrival ? destination.arrival.toISOString() : 'Not available' %>
+        Arrival Date/Time: <%= destination.arrival ? destination.arrival : 'Not available' %>
       </li>
     <% }); %>
   </ul>
